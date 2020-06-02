@@ -1,0 +1,17 @@
+  .header h1 {
+    margin: 0;
+  }
+  
+  .header {
+    padding: 20px;
+  }
+  
+  .main {
+    padding: 30px;
+  }
+  
+  .student-lists {
+    height: 600px;
+    overflow: scroll;
+    overflow-x: hidden;
+  }
