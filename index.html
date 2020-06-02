@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="styles/style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 
@@ -17,7 +17,7 @@
     <h1 class="center">Hogwarts Student Roster</h1>
   </div>
 
-  <div class="student-container">
+  <div class="students-container">
 
       <form id="student-form"  data-action="create">
         <div class="input-field">
@@ -46,13 +46,17 @@
 
     <div class="list-of-students">
       <h3 class="center">List of Students</h3>
+      <div id="list-of-students">
       
+      </div>
     </div>
   </div>
 
  
 </body>
-<script src=""></script>
+<script src="src/components/students.js"></script>
+<script src="src/components/app.js"></script>
+<script src="src/services/API.js"></script>
+<script src="src/index.js"></script>
 
-<!-- <script src="js/classes.js"></script> -->
 </html> 
