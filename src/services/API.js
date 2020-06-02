@@ -5,6 +5,5 @@ class API {
 
     getStudents() {
       return fetch(this.baseUrl).then(resp => resp.json())
-      }
     }
 }
