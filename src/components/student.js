@@ -7,4 +7,8 @@ class Student {
       this.patronus = studentJSON.patronus
       this.teacher_id = studentJSON.teacher_id
     }
+
+    renderLi() {
+      return `<li>${this.name}</li>`
+    }
 }
