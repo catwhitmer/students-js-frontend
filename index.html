@@ -17,7 +17,7 @@
     <h1 class="center">Hogwarts Student Roster</h1>
   </div>
 
-  <div class="students-container">
+  <div class="container">
 
       <form id="student-form"  data-action="create">
         <div class="input-field">
@@ -46,14 +46,20 @@
 
     <div class="list-of-students">
       <h3 class="center">List of Students</h3>
-      <div id="list-of-students">
-      
-      </div>
+      <br>
+      <h4>
+        <ul id="students-container">
+ 
+        </ul>
+      </h4>
+    </div>
+
+    <div id="student-show">
+    
     </div>
   </div>
-
- 
 </body>
+<script type="text/javascript" src="src/components/student.js"></script>
 <script src="src/components/students.js"></script>
 <script src="src/components/app.js"></script>
 <script src="src/services/API.js"></script>
