@@ -10,7 +10,7 @@ class Students {
         this.service
           .getStudents()
           .then(students => {
-            students.forEach(student => this.students.push(student))
+            students.forEach(student => this.students.push(new Student(student)))
         })
         .then(() => {
             this.render()
@@ -18,7 +18,7 @@ class Students {
     }
 
     render() {
-      const studentsContainer = document.getElementById("list-of-students")
-      studentsContainer.innerHTML = 'my students'
+        const studentsList = document.getElementById("students-container")
+        studentsList.innerHTML = this.students.map(student => `<li>${student.name}</li>`).join('')
     }
 }
