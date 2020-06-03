@@ -2,8 +2,19 @@ class Students {
     constructor() {
         this.students = []
         this.service = new API()
-        //this.bindEventListeners()
+        this.bindEventListeners()
         this.fetchStudents()
+    }
+
+    bindEventListeners() {
+        this.studentsList = document.getElementById("students-container")
+        this.studentForm = document.getElementById("student-form")
+        this.studentForm.addEventListener('submit', this.createStudent)
+    }
+
+    createStudent(e) {
+        e.preventDefault()
+        console.log("student created")
     }
 
     fetchStudents() {
@@ -18,7 +29,6 @@ class Students {
     }
 
     render() {
-        const studentsList = document.getElementById("students-container")
-        studentsList.innerHTML = this.students.map(student => `<li>${student.name}</li>`).join('')
+        this.studentsList.innerHTML = this.students.map(student => student.renderLi()).join('')
     }
 }
