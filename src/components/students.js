@@ -7,7 +7,6 @@ class Students {
     }
 
     bindEventListeners() {
-        this.studentsList = document.getElementById("students-container")
         this.teacherId = document.getElementById("teacher_id")
         this.studentName = document.getElementById("name")
         this.studentHouse = document.getElementById("house")
@@ -15,6 +14,7 @@ class Students {
         this.studentPatronus = document.getElementById("patronus")
         this.studentForm = document.getElementById("student-form")
         this.studentForm.addEventListener('submit', this.createStudent.bind(this))
+        this.editButton = document.getElementById("editButton")
     }
     
     createStudent(e) {
@@ -49,6 +49,16 @@ class Students {
     }
 
     render() {
-        this.studentsList.innerHTML = this.students.map(student => student.renderLi()).join('')
+        console.log(this.students)
+         const studentContainer = document.getElementById("students-container")
+         studentContainer.innerHTML = this.students.map(student => 
+            `<p><h3 id="studentData">
+                <span>Student Name: ${student.name}</span><br>
+                <span>House: ${student.house}</span><br>
+                <span>Blood Status: ${student.blood_status}</span><br>
+                <span>Patronus: ${student.patronus}</span><br>
+                <button id="editButton" data-id=${student.id}>edit</button>
+            </h3></p>`
+        )
     }
 }

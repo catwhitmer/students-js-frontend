@@ -1,14 +1,23 @@
 class Student {
-    constructor(studentJSON) {
-      this.id = studentJSON.id
-      this.name = studentJSON.name
-      this.house = studentJSON.house
-      this.blood_status = studentJSON.blood_status
-      this.patronus = studentJSON.patronus
-      this.teacher_id = studentJSON.teacher_id
+    constructor(data) {
+      this.id = data.id
+      this.name = data.name
+      this.house = data.house
+      this.blood_status = data.blood_status
+      this.patronus = data.patronus
+      this.teacher_id = data.teacher_id
     }
 
-    renderLi() {
-      return `<li>${this.name}</li>`
-    }
+    //renderStudentData() {
+      //return 
+       //<li>
+          //<h3>
+            //${student.name}
+            //${student.house}
+            //${student.blood_status}
+            //${student.patronus}
+            //<button data-id=${student.id}>edit</button>
+          //</h3>
+        //</li>`
+      //}
 }
