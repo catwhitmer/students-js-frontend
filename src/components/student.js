@@ -8,6 +8,16 @@ class Student {
       this.teacher_id = data.teacher_id
     }
 
+    editButtonClick(){
+      const editButton = document.querySelectorAll(".edit-button")
+      
+      for (editButton of editButtons){
+          editButton.addEventListener("click", function() {
+            console.log('clicked')
+          })
+      } 
+  }
+
     //renderStudentData() {
       //return 
        //<li>
