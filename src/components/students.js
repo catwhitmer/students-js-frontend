@@ -49,11 +49,14 @@ class Students {
             this.studentPatronus.value = patronus.innerText  
 
             document.querySelector("#teacher_id").value = e.target.parentElement.dataset.teacher
+            document.querySelector(".btn").value = "Edit Student"
+debugger
+            const id = e.target.parentElement.id
 
-            
+            this.service.updateStudent(name.innerText, house.innerText, blood_status.innerText, patronus.innerText, id)
 
         } else if (e.target.className === "delete-button") {
-          console.log("delete")
+            console.log("delete")
         }
     }
 
@@ -78,6 +81,9 @@ class Students {
             <p>Student Patronus: <span>${student.patronus}</span></p>
             <button class="edit-button">edit</button>
             <button class="delete-button">delete</button>
+            <br>
+            <br>
         </div>`
         ).join("")}
+    
 }

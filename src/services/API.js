@@ -28,7 +28,7 @@ class API {
       }).then(resp => resp.json())
     }
 
-    updateStudent(value, id) {
+    updateStudent(teacherIdValue, nameValue, houseValue, bloodValue, patronusValue, id) {
       const student = {
         teacher_id: teacherIdValue,
         name: nameValue,
@@ -36,7 +36,7 @@ class API {
         blood_status: bloodValue,
         patronus: patronusValue
     } 
-    return fetch(`${this.baseUrl}/id`,{
+    return fetch(`${this.baseUrl}/${id}`,{
         method: 'PATCH',
         headers: {
           'content-type': 'application/json',
