@@ -40,12 +40,21 @@ class Students {
 
     editDeleteButtonClick(e) {
         if (e.target.className === "edit-button") {
-          console.log("edit")
-       
+         
+            const [name, house, blood_status, patronus] = e.target.parentElement.querySelectorAll("span")
+        
+            this.studentName.value = name.innerText
+            this.studentHouse.value  = house.innerText
+            this.studentBloodStatus.value  = blood_status.innerText
+            this.studentPatronus.value = patronus.innerText  
+
+            document.querySelector("#teacher_id").value = e.target.parentElement.dataset.teacher
+
+            
+
         } else if (e.target.className === "delete-button") {
           console.log("delete")
         }
-
     }
 
     fetchStudents() {
@@ -62,11 +71,11 @@ class Students {
     render() {
         //const studentContainer = document.getElementById("students-container")
         this.studentContainer.innerHTML = this.students.map(student => 
-        `<div id="student-data">
-            <h3>Student Name: ${student.name}</h3>
-            <h4>House: ${student.house}</h4>
-            <h4>Blood Status: ${student.blood_status}</h4>
-            <h4>Patronus: ${student.patronus}</h4>
+        `<div class="student-data" id="${student.id}" data-teacher="${student.teacher_id}">
+            <p>Student Name: <span>${student.name}</span></p>
+            <p>Student House: <span>${student.house}</span></p>
+            <p>Student Blood Status: <span>${student.blood_status}</span></p>
+            <p>Student Patronus: <span>${student.patronus}</span></p>
             <button class="edit-button">edit</button>
             <button class="delete-button">delete</button>
         </div>`
