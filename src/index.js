@@ -1,6 +1,5 @@
 const app = new App()
 
-
 API.getTeachers() 
 .then(data => {
     data.forEach(teacher => {
@@ -8,5 +7,4 @@ API.getTeachers()
      <option value= ${teacher.id}>${teacher.name}</option>
      `
     });
-} )
-
+})

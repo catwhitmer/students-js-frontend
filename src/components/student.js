@@ -7,9 +7,4 @@ class Student {
       this.patronus = data.patronus
       this.teacher_id = data.teacher_id
     }
-
-    //renderStudentData(student) {
-      //return 
-       
-      //}
 }
