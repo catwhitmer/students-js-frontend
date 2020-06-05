@@ -27,4 +27,21 @@ class API {
         body: JSON.stringify({ student }),
       }).then(resp => resp.json())
     }
+
+    updateStudent(value, id) {
+      const student = {
+        teacher_id: teacherIdValue,
+        name: nameValue,
+        house: houseValue,
+        blood_status: bloodValue,
+        patronus: patronusValue
+    } 
+    return fetch(`${this.baseUrl}/id`,{
+        method: 'PATCH',
+        headers: {
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify({ student }),
+      }).then(resp => resp.json())
+    }
 }
