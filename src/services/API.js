@@ -7,7 +7,7 @@ class API {
       return fetch(this.baseUrl).then(resp => resp.json())
     }
 
-    getTeachers() {
+    static getTeachers() {
       return fetch("http://localhost:3000/api/v1/teachers").then(resp => resp.json())
     }
 

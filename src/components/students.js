@@ -15,7 +15,7 @@ class Students {
         this.studentPatronus = document.getElementById("patronus")
         this.studentForm = document.getElementById("student-form")
         this.studentForm.addEventListener('submit', this.createStudent.bind(this))
-        this.studentContainer.addEventListener('click', this.editButtonClick.bind(this))
+        this.studentContainer.addEventListener('click', this.editDeleteButtonClick.bind(this))
     }
     
     createStudent(e) {
@@ -38,8 +38,14 @@ class Students {
         
     }
 
-    editButtonClick(e) {
-        const editButton = e.target
+    editDeleteButtonClick(e) {
+        if (e.target.className === "edit-button") {
+          console.log("edit")
+       
+        } else if (e.target.className === "delete-button") {
+          console.log("delete")
+        }
+
     }
 
     fetchStudents() {
@@ -61,7 +67,8 @@ class Students {
             <h4>House: ${student.house}</h4>
             <h4>Blood Status: ${student.blood_status}</h4>
             <h4>Patronus: ${student.patronus}</h4>
-            <button id="edit-button">edit</button>
+            <button class="edit-button">edit</button>
+            <button class="delete-button">delete</button>
         </div>`
-        )}
+        ).join("")}
 }
