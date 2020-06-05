@@ -7,6 +7,7 @@ class Students {
     }
 
     bindEventListeners() {
+        this.studentContainer = document.getElementById("students-container")
         this.teacherId = document.getElementById("teacher_id")
         this.studentName = document.getElementById("name")
         this.studentHouse = document.getElementById("house")
@@ -14,9 +15,7 @@ class Students {
         this.studentPatronus = document.getElementById("patronus")
         this.studentForm = document.getElementById("student-form")
         this.studentForm.addEventListener('submit', this.createStudent.bind(this))
-        //this.editStudent.addEventListener('click', function() {
-            //console.log('clicked')
-        //})
+        this.studentContainer.addEventListener('click', this.editButtonClick.bind(this))
     }
     
     createStudent(e) {
@@ -39,6 +38,10 @@ class Students {
         
     }
 
+    editButtonClick(e) {
+        const editButton = e.target
+    }
+
     fetchStudents() {
         this.service
           .getStudents()
@@ -51,15 +54,14 @@ class Students {
     }
 
     render() {
-         const studentContainer = document.getElementById("students-container")
-         studentContainer.innerHTML = this.students.map(student => 
-            `<p id="studentData">
-                <h3><span>Student Name: ${student.name}</span></h3>
-                <h4><span>House: ${student.house}</span></h4>
-                <h4><span>Blood Status: ${student.blood_status}</span></h4>
-                <h4><span>Patronus: ${student.patronus}</span></h4>
-                <h4><button id="edit-button">edit</button></h4>
-            </id=></p>`
-        )
-    }
+        //const studentContainer = document.getElementById("students-container")
+        this.studentContainer.innerHTML = this.students.map(student => 
+        `<div id="student-data">
+            <h3>Student Name: ${student.name}</h3>
+            <h4>House: ${student.house}</h4>
+            <h4>Blood Status: ${student.blood_status}</h4>
+            <h4>Patronus: ${student.patronus}</h4>
+            <button id="edit-button">edit</button>
+        </div>`
+        )}
 }
