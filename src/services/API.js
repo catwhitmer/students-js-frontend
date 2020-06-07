@@ -28,7 +28,7 @@ class API {
       }).then(resp => resp.json())
     }
 
-    updateStudent(newTeacherIdValue, newNameValue, newHouseValue, newBloodValue, newPatronusValue, id) {
+    updateStudent(teacherIdValue, nameValue, houseValue, bloodValue, patronusValue, id) {
       const student = {
         teacher_id: newTeacherIdValue,
         name: newNameValue,
@@ -43,6 +43,5 @@ class API {
         },
         body: JSON.stringify({ student }),
       }).then(resp => resp.json())
-        debugger
     }
 }

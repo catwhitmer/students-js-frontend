@@ -51,12 +51,13 @@ class Students {
             document.querySelector("#teacher_id").value = e.target.parentElement.dataset.teacher// id of teacher
             const id = e.target.parentElement.id //id of the form
             document.querySelector(".btn").value = "Edit Student" //button change
+            this.studentForm.dataset.action = "update"
 
-            const newTeacherIdValue = this.teacherId.value 
-            const newNameValue = this.studentName.value 
-            const newHouseValue = this.studentHouse.value 
-            const newBloodValue = this.studentBloodStatus.value 
-            const newPatronusValue = this.studentPatronus.value
+            const newTeacherIdValue =  e.target.parentElement.dataset.teacher
+            const newNameValue = name.innerText 
+            const newHouseValue = house.innerText 
+            const newBloodValue = blood_status.innerText
+            const newPatronusValue = patronus.innerText 
 
             this.service.updateStudent(newTeacherIdValue, newNameValue, newHouseValue, newBloodValue, newPatronusValue, id)
 
