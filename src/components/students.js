@@ -49,9 +49,10 @@ class Students {
             this.studentPatronus.value = patronus.innerText  
 
             document.querySelector("#teacher_id").value = e.target.parentElement.dataset.teacher// id of teacher
-            const id = e.target.parentElement.id //id of the form
-            document.querySelector(".btn").value = "Edit Student" //button change
-            this.studentForm.dataset.action = "update"
+            document.querySelector(".btn").value = "Edit Student"    //button change
+            this.studentForm.dataset.id = e.target.parentElement.id //id of the form
+            const id = e.target.parentElement.id //id of form
+            this.studentForm.dataset.action = "update" //change action
 
             const newTeacherIdValue =  e.target.parentElement.dataset.teacher
             const newNameValue = name.innerText 
@@ -62,7 +63,9 @@ class Students {
             this.service.updateStudent(newTeacherIdValue, newNameValue, newHouseValue, newBloodValue, newPatronusValue, id)
 
         } else if (e.target.className === "delete-button") {
-            console.log("delete")
+            const Id = e.target.parentElement.id
+            console.log("delete", Id)
+            this.service.deleteStudent(Id)
         }
     }
 

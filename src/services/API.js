@@ -28,7 +28,7 @@ class API {
       }).then(resp => resp.json())
     }
 
-    updateStudent(teacherIdValue, nameValue, houseValue, bloodValue, patronusValue, id) {
+    updateStudent(newTeacherIdValue, newNameValue, newHouseValue, newBloodValue, newPatronusValue, id) {
       const student = {
         teacher_id: newTeacherIdValue,
         name: newNameValue,
@@ -44,4 +44,15 @@ class API {
         body: JSON.stringify({ student }),
       }).then(resp => resp.json())
     }
+
+    deleteStudent(id) {
+
+    return fetch(`${this.baseUrl}/${id}`,{
+        method: 'DELETE',
+        headers: {
+          'content-type': 'application/json',
+        },
+      }).then(resp => resp.json())
+    }
+
 }
