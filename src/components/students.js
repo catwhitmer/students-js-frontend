@@ -42,18 +42,23 @@ class Students {
         if (e.target.className === "edit-button") {
          
             const [name, house, blood_status, patronus] = e.target.parentElement.querySelectorAll("span")
-        
+    
             this.studentName.value = name.innerText
             this.studentHouse.value  = house.innerText
             this.studentBloodStatus.value  = blood_status.innerText
             this.studentPatronus.value = patronus.innerText  
 
-            document.querySelector("#teacher_id").value = e.target.parentElement.dataset.teacher
-            document.querySelector(".btn").value = "Edit Student"
-debugger
-            const id = e.target.parentElement.id
+            document.querySelector("#teacher_id").value = e.target.parentElement.dataset.teacher// id of teacher
+            const id = e.target.parentElement.id //id of the form
+            document.querySelector(".btn").value = "Edit Student" //button change
 
-            this.service.updateStudent(name.innerText, house.innerText, blood_status.innerText, patronus.innerText, id)
+            const newTeacherIdValue = this.teacherId.value 
+            const newNameValue = this.studentName.value 
+            const newHouseValue = this.studentHouse.value 
+            const newBloodValue = this.studentBloodStatus.value 
+            const newPatronusValue = this.studentPatronus.value
+
+            this.service.updateStudent(newTeacherIdValue, newNameValue, newHouseValue, newBloodValue, newPatronusValue, id)
 
         } else if (e.target.className === "delete-button") {
             console.log("delete")
@@ -79,8 +84,8 @@ debugger
             <p>Student House: <span>${student.house}</span></p>
             <p>Student Blood Status: <span>${student.blood_status}</span></p>
             <p>Student Patronus: <span>${student.patronus}</span></p>
-            <button class="edit-button">edit</button>
-            <button class="delete-button">delete</button>
+            <button class="edit-button">Edit</button>
+            <button class="delete-button">Delete</button>
             <br>
             <br>
         </div>`

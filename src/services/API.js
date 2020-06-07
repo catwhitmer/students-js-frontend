@@ -28,14 +28,14 @@ class API {
       }).then(resp => resp.json())
     }
 
-    updateStudent(teacherIdValue, nameValue, houseValue, bloodValue, patronusValue, id) {
+    updateStudent(newTeacherIdValue, newNameValue, newHouseValue, newBloodValue, newPatronusValue, id) {
       const student = {
-        teacher_id: teacherIdValue,
-        name: nameValue,
-        house: houseValue,
-        blood_status: bloodValue,
-        patronus: patronusValue
-    } 
+        teacher_id: newTeacherIdValue,
+        name: newNameValue,
+        house: newHouseValue,
+        blood_status: newBloodValue,
+        patronus: newPatronusValue
+    }
     return fetch(`${this.baseUrl}/${id}`,{
         method: 'PATCH',
         headers: {
@@ -43,5 +43,6 @@ class API {
         },
         body: JSON.stringify({ student }),
       }).then(resp => resp.json())
+        debugger
     }
 }
