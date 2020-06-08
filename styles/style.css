@@ -4,10 +4,15 @@
     background-repeat: no-repeat;
     background-position: top right, top left;
     background-size: contain;
+    background-color: grey;
   }
   
   .main {
     padding: 30px;
+  }
+
+  .body {
+   
   }
   
   .students-container {
