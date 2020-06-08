@@ -26,10 +26,10 @@ class Students {
         const houseValue = this.studentHouse.value 
         const bloodValue = this.studentBloodStatus.value 
         const patronusValue = this.studentPatronus.value
+
       if (e.target.dataset.action === "create") {
         e.preventDefault()
         
-
         this.service.createStudent(teacherIdValue, nameValue, houseValue, bloodValue, patronusValue).then(student => {
             this.students.push(new Student(student))
                 this.teacherId.value = ''
@@ -45,10 +45,7 @@ class Students {
               .then(data => {
               console.log(data)
               })
-              
-
-      }
-        
+      } 
     }
 
     editDeleteButtonClick(e) {
@@ -68,17 +65,12 @@ class Students {
           
             this.studentForm.dataset.action = "update" //change action
 
-        
-            //this.service.updateStudent(e.target.parentElement.dataset.teacher, name.innerText, house.innerText, blood_status.innerText, patronus.innerText, id)
-            
-
         } else if (e.target.className === "delete-button") {
             const Id = e.target.parentElement.id
             console.log("delete", Id)
             this.service.deleteStudent(Id)
             .then(() => {
-
-                this.fetchStudents()
+              this.fetchStudents()
               })
         }
     }
@@ -97,7 +89,6 @@ class Students {
 
     render() {
         this.studentContainer.innerHTML = ""
-
         this.studentContainer.innerHTML = this.students.map(student => 
         `<div class="student-data" id="${student.id}" data-teacher="${student.teacher_id}">
             <p>Student Name: <span>${student.name}</span></p>
