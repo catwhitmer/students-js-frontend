@@ -15,17 +15,20 @@ class Students {
         this.studentPatronus = document.getElementById("patronus")
         this.studentForm = document.getElementById("student-form")
         this.studentForm.addEventListener('submit', this.createStudent.bind(this))
-        this.studentForm.addEventListener('submit', this.editDeleteButtonClick.bind(this))
+        //this.studentForm.addEventListener('submit', this.editDeleteButtonClick.bind(this))
         this.studentContainer.addEventListener('click', this.editDeleteButtonClick.bind(this))
     }
     
     createStudent(e) {
-        e.preventDefault()
+     
         const teacherIdValue = this.teacherId.value 
         const nameValue = this.studentName.value 
         const houseValue = this.studentHouse.value 
         const bloodValue = this.studentBloodStatus.value 
         const patronusValue = this.studentPatronus.value
+      if (e.target.dataset.action === "create") {
+        e.preventDefault()
+        
 
         this.service.createStudent(teacherIdValue, nameValue, houseValue, bloodValue, patronusValue).then(student => {
             this.students.push(new Student(student))
@@ -36,6 +39,15 @@ class Students {
                 this.studentPatronus.value = ''   
                 this.render()
         })
+      } else if (e.target.dataset.action === "update") {
+            const id = e.target.dataset.id //id of form
+            this.service.updateStudent(teacherIdValue, nameValue, houseValue, bloodValue, patronusValue, id)
+              .then(data => {
+              console.log(data)
+              })
+              
+
+      }
         
     }
 
@@ -53,30 +65,26 @@ class Students {
             document.querySelector("#teacher_id").value = e.target.parentElement.dataset.teacher// id of teacher
             document.querySelector(".btn").value = "Edit Student"    //button change
             this.studentForm.dataset.id = e.target.parentElement.id //id of the form
-            const id = e.target.parentElement.id //id of form
+          
             this.studentForm.dataset.action = "update" //change action
 
-            const newTeacherIdValue =  e.target.parentElement.dataset.teacher
-            const newNameValue = name.innerText 
-            const newHouseValue = house.innerText 
-            const newBloodValue = blood_status.innerText
-            const newPatronusValue = patronus.innerText 
-
+        
             //this.service.updateStudent(e.target.parentElement.dataset.teacher, name.innerText, house.innerText, blood_status.innerText, patronus.innerText, id)
-            this.service.updateStudent(newTeacherIdValue, newNameValue, newHouseValue, newBloodValue, newPatronusValue, id)
-              .then(data => {
-              console.log(data)
-              })
+            
 
         } else if (e.target.className === "delete-button") {
             const Id = e.target.parentElement.id
             console.log("delete", Id)
             this.service.deleteStudent(Id)
-            this.render()
+            .then(() => {
+
+                this.fetchStudents()
+              })
         }
     }
 
     fetchStudents() {
+        this.students = []
         this.service
           .getStudents()
           .then(students => {
@@ -88,7 +96,8 @@ class Students {
     }
 
     render() {
-        //const studentContainer = document.getElementById("students-container")
+        this.studentContainer.innerHTML = ""
+
         this.studentContainer.innerHTML = this.students.map(student => 
         `<div class="student-data" id="${student.id}" data-teacher="${student.teacher_id}">
             <p>Student Name: <span>${student.name}</span></p>

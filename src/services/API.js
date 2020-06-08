@@ -55,7 +55,7 @@ class API {
       }).then(resp => resp.json())
         .then((data) => {
           if (!data.errors){
-            // show students without the deleted student
+            //return data  //show students without the deleted student
           }else{
             throw new Error( `${data.errors}` )
           } 
