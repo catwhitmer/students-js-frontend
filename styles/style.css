@@ -1,17 +1,21 @@
-  .header h1 {
-    margin: 0;
-  }
-  
-  .header {
-    padding: 20px;
+  .header-container {
+    text-align: center;
+    background-image: url("HogHouses.png"), url("Hogwarts-Crest.jpg");
+    background-repeat: no-repeat;
+    background-position: top right, top left;
+    background-size: contain;
   }
   
   .main {
     padding: 30px;
   }
   
-  .student-lists {
+  .students-container {
+    padding: 20px;
     height: 600px;
     overflow: scroll;
-    overflow-x: hidden;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 150px;
+    margin-left: 80px;
   }

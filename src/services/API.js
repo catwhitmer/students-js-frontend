@@ -28,13 +28,13 @@ class API {
       }).then(resp => resp.json())
     }
 
-    updateStudent(newTeacherIdValue, newNameValue, newHouseValue, newBloodValue, newPatronusValue, id) {
+    updateStudent(teacherIdValue, nameValue, houseValue, bloodValue, patronusValue, id) {
       const student = {
-        teacher_id: newTeacherIdValue,
-        name: newNameValue,
-        house: newHouseValue,
-        blood_status: newBloodValue,
-        patronus: newPatronusValue
+        teacher_id: teacherIdValue,
+        name: nameValue,
+        house: houseValue,
+        blood_status: bloodValue,
+        patronus: patronusValue
     }
     return fetch(`${this.baseUrl}/${id}`,{
         method: 'PATCH',
@@ -53,6 +53,13 @@ class API {
           'content-type': 'application/json',
         },
       }).then(resp => resp.json())
+        .then((data) => {
+          if (!data.errors){
+            // show students without the deleted student
+          }else{
+            throw new Error( `${data.errors}` )
+          } 
+        })
+        .catch(alert)
     }
-
 }

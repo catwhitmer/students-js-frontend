@@ -15,6 +15,7 @@ class Students {
         this.studentPatronus = document.getElementById("patronus")
         this.studentForm = document.getElementById("student-form")
         this.studentForm.addEventListener('submit', this.createStudent.bind(this))
+        this.studentForm.addEventListener('submit', this.editDeleteButtonClick.bind(this))
         this.studentContainer.addEventListener('click', this.editDeleteButtonClick.bind(this))
     }
     
@@ -39,6 +40,7 @@ class Students {
     }
 
     editDeleteButtonClick(e) {
+        e.preventDefault()
         if (e.target.className === "edit-button") {
          
             const [name, house, blood_status, patronus] = e.target.parentElement.querySelectorAll("span")
@@ -60,12 +62,17 @@ class Students {
             const newBloodValue = blood_status.innerText
             const newPatronusValue = patronus.innerText 
 
+            //this.service.updateStudent(e.target.parentElement.dataset.teacher, name.innerText, house.innerText, blood_status.innerText, patronus.innerText, id)
             this.service.updateStudent(newTeacherIdValue, newNameValue, newHouseValue, newBloodValue, newPatronusValue, id)
+              .then(data => {
+              console.log(data)
+              })
 
         } else if (e.target.className === "delete-button") {
             const Id = e.target.parentElement.id
             console.log("delete", Id)
             this.service.deleteStudent(Id)
+            this.render()
         }
     }
 
@@ -94,5 +101,4 @@ class Students {
             <br>
         </div>`
         ).join("")}
-    
 }
