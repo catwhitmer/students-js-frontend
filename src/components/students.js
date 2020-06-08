@@ -91,12 +91,12 @@ class Students {
         this.studentContainer.innerHTML = ""
         this.studentContainer.innerHTML = this.students.map(student => 
         `<div class="student-data" id="${student.id}" data-teacher="${student.teacher_id}">
-            <p>Student Name: <span>${student.name}</span></p>
+            <h4><p>Student Name: <span>${student.name}</span></p>
             <p>Student House: <span>${student.house}</span></p>
             <p>Student Blood Status: <span>${student.blood_status}</span></p>
             <p>Student Patronus: <span>${student.patronus}</span></p>
             <button class="edit-button">Edit</button>
-            <button class="delete-button">Delete</button>
+            <button class="delete-button">Delete</button></h4>
             <br>
             <br>
         </div>`

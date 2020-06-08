@@ -19,3 +19,25 @@
     margin-right: 150px;
     margin-left: 80px;
   }
+
+  .btn {
+    background-color: cornflowerblue;
+    color: white;
+  }
+
+  .edit-button {
+    background-color: darkgoldenrod;
+    color: white;
+  }
+
+  .delete-button {
+    background-color: darkred;
+    color: white;
+  }
+
+  .hog {
+    text-align: center;
+    background-image: url("Dhogwarts.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
