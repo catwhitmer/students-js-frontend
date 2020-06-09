@@ -62,7 +62,6 @@ class Students {
             document.querySelector("#teacher_id").value = e.target.parentElement.dataset.teacher// id of teacher
             document.querySelector(".btn").value = "Edit Student"    //button change
             this.studentForm.dataset.id = e.target.parentElement.id //id of the form
-          
             this.studentForm.dataset.action = "update" //change action
 
         } else if (e.target.className === "delete-button") {
@@ -91,12 +90,12 @@ class Students {
         this.studentContainer.innerHTML = ""
         this.studentContainer.innerHTML = this.students.map(student => 
         `<div class="student-data" id="${student.id}" data-teacher="${student.teacher_id}">
-            <h4><p>Student Name: <span>${student.name}</span></p>
+            <p>Student Name: <span>${student.name}</span></p>
             <p>Student House: <span>${student.house}</span></p>
             <p>Student Blood Status: <span>${student.blood_status}</span></p>
             <p>Student Patronus: <span>${student.patronus}</span></p>
             <button class="edit-button">Edit</button>
-            <button class="delete-button">Delete</button></h4>
+            <button class="delete-button">Delete</button>
             <br>
             <br>
         </div>`
