@@ -89,7 +89,7 @@ class Students {
     render() {
         this.studentContainer.innerHTML = ""
         this.studentContainer.innerHTML = this.students.map(student => 
-        `<div class="student-data" id="${student.id}" data-teacher="${student.teacher_id}">
+        `<h4><div class="student-data" id="${student.id}" data-teacher="${student.teacher_id}">
             <p>Student Name: <span>${student.name}</span></p>
             <p>Student House: <span>${student.house}</span></p>
             <p>Student Blood Status: <span>${student.blood_status}</span></p>
@@ -98,6 +98,6 @@ class Students {
             <button class="delete-button">Delete</button>
             <br>
             <br>
-        </div>`
+        </div></h4>`
         ).join("")}
 }
