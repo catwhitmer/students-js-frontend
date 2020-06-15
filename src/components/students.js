@@ -17,6 +17,7 @@ class Students {
         this.studentForm.addEventListener('submit', this.createStudent.bind(this))
         //this.studentForm.addEventListener('submit', this.editDeleteButtonClick.bind(this))
         this.studentContainer.addEventListener('click', this.editDeleteButtonClick.bind(this))
+        this.studentContainer.addEventListener('click', this.fetchHStudents.bind(this))
     }
     
     createStudent(e) {
@@ -86,9 +87,22 @@ class Students {
         })
     }
 
+    fetchHStudents() {
+        this.students = []
+        this.service
+          .getStudents()
+          .then(students => {
+            const result = students.filter(student => student.name.charAt(0) === "H")
+            result.forEach(student => this.students.push(new Student(student)))
+        })
+        .then(() => {
+            this.render()
+        })
+    }
+
     render() {
-        this.studentContainer.innerHTML = ""
-        this.studentContainer.innerHTML = this.students.map(student => 
+        this.studentContainer.innerHTML = '<button class="render"> H Students </button>'
+        this.studentContainer.innerHTML += this.students.map(student => 
         `<h4><div class="student-data" id="${student.id}" data-teacher="${student.teacher_id}">
             <p>Student Name: <span>${student.name}</span></p>
             <p>Student House: <span>${student.house}</span></p>
