@@ -101,7 +101,7 @@ class Students {
     }
 
     render() {
-        this.studentContainer.innerHTML = '<button class="render"> H Students </button>'
+        this.studentContainer.innerHTML = '<button class="render"> Sort Students by H </button>'
         this.studentContainer.innerHTML += this.students.map(student => 
         `<h4><div class="student-data" id="${student.id}" data-teacher="${student.teacher_id}">
             <p>Student Name: <span>${student.name}</span></p>
