@@ -4,10 +4,17 @@ Hogwarts Student Roster app
 
 This app provides a database and web interface for users to:
 
--Create an student which allows the teacher to see all the students enrolled, and allows the teacher to manage the students. -Each teacher can modify content of the student. -A teacher can create, update, and delete students. -Teacher inputs are validated by username presence. Also the teacher's id must be present as well.
+-Create a student
+-Allows the teacher to see all the students enrolled
+-Allows the teacher to manage the students
+-Each teacher can modify content of their student only 
+-A teacher can create, update, and delete students
+-Teacher inputs are validated by username presence
+-The teacher's id must be present as well.
 
-This backend was built with Rails, and with the use of ActiveRecord for storing information in a database.
-The frontend was build using object-oriented JavaScript.
+The frontend was build using JavaScript.
+The API was built using Ruby on Rails and the DB with ActiveRecord.
+
 
 Usage Backend
 1.clone repository 2.bundle install 3.rake db:migrate 4.rails s 5.Then navigate to localhost:3000 in your browser to see it in action.
